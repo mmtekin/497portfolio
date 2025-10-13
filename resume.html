@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume - M. Malik Tekin</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">MT</a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">About</a></li>
+          <li><a href="resume.html" class="nav-link active">Resume</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div class="resume-header">
+        <h1>M. Malik Tekin</h1>
+        <div class="contact-info">
+          <a
+            href="https://linkedin.com/in/mmtekin"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+          <span>|</span>
+          <a href="https://github.com/mmtekin" target="_blank" rel="noopener"
+            >GitHub</a
+          >
+        </div>
+      </div>
+
+      <section class="resume-section">
+        <h2>Education</h2>
+        <div class="education-item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">University of Michigan</div>
+              <div class="item-subtitle">
+                Bachelor of Science in Engineering in Computer Science
+              </div>
+              <div class="item-subtitle">GPA: 3.7</div>
+            </div>
+            <div class="item-location">
+              <div>Ann Arbor, MI</div>
+              <div class="item-dates">Expected Apr. 2026</div>
+            </div>
+          </div>
+          <div class="item-content">
+            <p>
+              <strong>Academic Honors:</strong> Dean's List (5 Semesters: Fall
+              2022–Fall 2024), University Honors (2022–2024)
+            </p>
+            <p>
+              <strong>Relevant Coursework:</strong> Distributed Systems,
+              Algorithms, Data Structures, Computer Security, Practical Data
+              Science, Web Systems, Computer Organization, Computer Science
+              Theory, Software Engineering
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>Experience</h2>
+
+        <div class="experience-item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">Barracuda Networks</div>
+              <div class="item-subtitle">Software Engineering Co-op</div>
+            </div>
+            <div class="item-location">
+              <div>Ann Arbor, MI</div>
+              <div class="item-dates">Aug. 2025 – Present</div>
+            </div>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Express.js</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">AWS</span>
+          </div>
+          <div class="item-content">
+            <ul>
+              <li>
+                Developed a cache-entitlement layer enabling fast cache
+                invalidation on user entitlement changes and integrated
+                entitlement creation into an order-fulfillment lambda, allowing
+                users to immediately access purchased products and reducing
+                support escalations by 21%
+              </li>
+              <li>
+                Resolved 502 gateway errors by diagnosing a mismatch between ALB
+                keep-alive timeout (60s) and Express default keep-alive (5s),
+                aligning configurations to ensure stable connections and
+                eliminate service disruptions that affected customers
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">Barracuda Networks</div>
+              <div class="item-subtitle">Software Engineering Intern</div>
+            </div>
+            <div class="item-location">
+              <div>Ann Arbor, MI</div>
+              <div class="item-dates">June 2025 – Aug. 2025</div>
+            </div>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">TypeScript</span>
+            <span class="tech-tag">Express.js</span>
+            <span class="tech-tag">MySQL</span>
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">AWS</span>
+          </div>
+          <div class="item-content">
+            <ul>
+              <li>
+                Built a full Mabl dashboard that enabled QA to filter by product
+                and environment to view failed test plans as well as all
+                executed tests within a chosen datetime range, streamlining
+                debugging and test coverage analysis
+              </li>
+              <li>
+                Engineered a CI/CD pipeline using GitHub Actions to automate
+                test execution, saving hours of weekly QA effort by eliminating
+                manual triggering and monitoring across all deployment stacks
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>Projects</h2>
+
+        <div class="experience-item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">
+                <a
+                  href="project-search-engine.html"
+                  style="color: var(--accent)"
+                  >Distributed Search Engine</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML/CSS</span>
+          </div>
+          <div class="item-content">
+            <ul>
+              <li>
+                Architected a scalable distributed search engine featuring a
+                Hadoop-compatible MapReduce pipeline for inverted index
+                creation, incorporating PageRank algorithms for improved ranking
+                of search results
+              </li>
+              <li>
+                Implemented a multithreaded search server in Python, boosting
+                query performance through concurrent API requests to distributed
+                index servers and parallel result aggregation
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">
+                <a href="project-kvstore.html" style="color: var(--accent)"
+                  >Sharded Key-Value Store</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">Go</span>
+            <span class="tech-tag">Paxos</span>
+            <span class="tech-tag">Concurrency</span>
+          </div>
+          <div class="item-content">
+            <ul>
+              <li>
+                Built a fault-tolerant, sharded key-value store using Paxos for
+                consensus and coordination between replica groups
+              </li>
+              <li>
+                Implemented dynamic reconfiguration logic to safely transfer
+                shards between replica groups during changes in topology
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">
+                <a href="project-instagram.html" style="color: var(--accent)"
+                  >Instagram Clone</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">HTML/CSS</span>
+          </div>
+          <div class="item-content">
+            <ul>
+              <li>
+                Built an Instagram clone with a Flask backend and React
+                frontend, utilizing a REST API and SQLite database for efficient
+                data management
+              </li>
+              <li>
+                Implemented features like infinite scroll, double-click to like,
+                and user authentication with session management, ensuring
+                protection against web vulnerabilities
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience-item">
+          <div class="item-header">
+            <div>
+              <div class="item-title">
+                <a href="project-tennis.html" style="color: var(--accent)"
+                  >ATP Tennis Match Predictor</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">pandas</span>
+            <span class="tech-tag">scikit-learn</span>
+            <span class="tech-tag">NumPy</span>
+          </div>
+          <div class="item-content">
+            <ul>
+              <li>
+                Transformed 6K+ ATP matches into a player-centric dataset with
+                Elo rating updates, symmetric features, and engineered variables
+                (rank/age/point differences, surface type, tournament
+                seasonality)
+              </li>
+              <li>
+                Built end-to-end ML pipeline with preprocessing (imputation,
+                scaling, one-hot encoding) and trained decision tree and
+                gradient boosting classifiers, improving predictive accuracy
+                from 58% (baseline) to 64%
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="resume-section">
+        <h2>Technical Skills</h2>
+        <div class="skills-list">
+          <div class="skill-item">
+            <strong>Languages</strong>
+            TypeScript, JavaScript, Go, Python, C++, C, SQL, HTML/CSS
+          </div>
+          <div class="skill-item">
+            <strong>Technologies</strong>
+            React, Next.js, Express, Node.js, Tailwind CSS, Flask, Git, Docker,
+            VS Code, Neovim
+          </div>
+          <div class="skill-item">
+            <strong>Concepts</strong>
+            Full Stack Development, Backend Development, Distributed Systems,
+            Agile, Frontend Development, Data Analysis
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 M. Malik Tekin. Built with passion for clean code and
+        distributed systems.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

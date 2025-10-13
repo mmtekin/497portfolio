@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sharded Key-Value Store - M. Malik Tekin</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">MT</a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">About</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div style="margin-bottom: 1rem">
+        <a
+          href="projects.html"
+          style="color: var(--accent); text-decoration: none; font-weight: 600"
+          >&larr; Back to Projects</a
+        >
+      </div>
+
+      <h1
+        style="
+          font-size: 3rem;
+          background: linear-gradient(135deg, var(--accent), var(--accent-2));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 1rem;
+          font-weight: 800;
+        "
+      >
+        Sharded Key-Value Store
+      </h1>
+
+      <div class="tech-tags" style="margin-bottom: 2rem">
+        <span class="tech-tag">Go</span>
+        <span class="tech-tag">Paxos</span>
+        <span class="tech-tag">Distributed Systems</span>
+        <span class="tech-tag">Concurrency</span>
+        <span class="tech-tag">Consensus Algorithms</span>
+      </div>
+
+      <img
+        src="keyValueArchitecture.png"
+        alt="Sharded Key-Value Store Architecture"
+        class="project-image"
+        style="
+          width: 100%;
+          height: 400px;
+          object-fit: contain;
+          border-radius: 16px;
+          margin-bottom: 2rem;
+          background: rgba(26, 31, 58, 0.5);
+        "
+      />
+
+      <section
+        style="
+          max-width: 900px;
+          background: rgba(26, 31, 58, 0.5);
+          backdrop-filter: blur(10px);
+          padding: 3rem;
+          border-radius: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        "
+      >
+        <h2>Overview</h2>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          Developed a fault-tolerant, sharded key-value storage system in Go
+          that provides strong consistency guarantees through Paxos consensus.
+          The system supports dynamic reconfiguration, allowing it to adapt to
+          changing cluster topologies while maintaining data availability and
+          consistency.
+        </p>
+
+        <h2>Key Features</h2>
+        <div class="project-features">
+          <ul>
+            <li>
+              <strong>Paxos Consensus:</strong> Implemented the Paxos algorithm
+              from scratch to ensure all replicas in a group agree on operation
+              ordering, providing strong consistency even in the presence of
+              failures
+            </li>
+            <li>
+              <strong>Sharding:</strong> Distributed data across multiple
+              replica groups using consistent hashing, enabling horizontal
+              scalability and load balancing
+            </li>
+            <li>
+              <strong>Fault Tolerance:</strong> Designed the system to continue
+              operating correctly even when minority nodes fail, automatically
+              detecting failures and re-routing requests
+            </li>
+            <li>
+              <strong>Dynamic Reconfiguration:</strong> Implemented safe shard
+              migration between replica groups, allowing the cluster to adapt to
+              changes in capacity without downtime or data loss
+            </li>
+            <li>
+              <strong>Concurrent Operations:</strong> Utilized Go's concurrency
+              primitives (goroutines, channels) to handle multiple client
+              requests simultaneously while maintaining consistency
+            </li>
+          </ul>
+        </div>
+
+        <h2>Technical Implementation</h2>
+        <h3>Architecture</h3>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          The system consists of three main components: clients, a configuration
+          service, and replica groups. Clients send get/put requests to
+          appropriate replica groups based on shard assignments. The
+          configuration service manages cluster membership and shard
+          distribution. Each replica group contains multiple servers that use
+          Paxos to agree on the order of operations.
+        </p>
+
+        <h3>Paxos Implementation</h3>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          I implemented Multi-Paxos to efficiently handle sequences of
+          operations. Each replica group runs its own Paxos instance, with one
+          server typically acting as the leader to reduce latency. The
+          implementation handles network partitions, message loss, and server
+          failures while guaranteeing that all replicas eventually converge to
+          the same state.
+        </p>
+
+        <h3>Shard Migration</h3>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          Dynamic reconfiguration is one of the most complex aspects of the
+          system. When the configuration changes, affected replica groups must
+          safely transfer shards to new owners. This involves: (1) detecting
+          configuration changes, (2) pulling necessary data from previous
+          owners, (3) ensuring no operations are lost during migration, and (4)
+          handling overlapping reconfigurations. I implemented a protocol that
+          tracks configuration versions and uses Paxos to coordinate the
+          migration process.
+        </p>
+
+        <h2>Challenges & Solutions</h2>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          One significant challenge was ensuring correctness during concurrent
+          reconfigurations. If multiple shards are being transferred
+          simultaneously, the system must carefully track which operations have
+          been applied and prevent duplicate execution. I solved this by
+          implementing a comprehensive state machine that tracks both data and
+          metadata, with each operation being logged and applied atomically.
+          Another challenge was debugging distributed consensus bugs. I
+          implemented extensive logging and that helped me debug the system and
+          used the race detector to find bugs.
+        </p>
+
+        <h2>Results & Impact</h2>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          The final system passes a comprehensive test suite that simulates
+          network failures, server crashes, and complex reconfiguration
+          scenarios. It achieves strong consistency guarantees while maintaining
+          high availability.
+        </p>
+
+        <h2>Skills Demonstrated</h2>
+        <div class="interest-list" style="margin-top: 1rem">
+          <li>Distributed Consensus Algorithms</li>
+          <li>Concurrent Programming in Go</li>
+          <li>System Design & Architecture</li>
+          <li>Fault Tolerance & Reliability</li>
+          <li>Performance Optimization</li>
+          <li>Distributed Systems Testing</li>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 M. Malik Tekin. Built with passion for clean code and
+        distributed systems.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

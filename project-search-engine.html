@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Distributed Search Engine - M. Malik Tekin</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">MT</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">About</a></li>
+        <li><a href="resume.html" class="nav-link">Resume</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <div style="margin-bottom: 1rem;">
+      <a href="projects.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">&larr; Back to
+        Projects</a>
+    </div>
+
+    <h1
+      style="font-size: 3rem; background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; font-weight: 800;">
+      Distributed Search Engine</h1>
+
+    <div class="tech-tags" style="margin-bottom: 2rem;">
+      <span class="tech-tag">Python</span>
+      <span class="tech-tag">Flask</span>
+      <span class="tech-tag">React</span>
+      <span class="tech-tag">AWS</span>
+      <span class="tech-tag">JavaScript</span>
+      <span class="tech-tag">MapReduce</span>
+      <span class="tech-tag">PageRank</span>
+    </div>
+
+    <img src="searchEnginePic.png" alt="Distributed Search Engine Architecture" class="project-image"
+      style="width: 100%; height: 400px; object-fit: contain; border-radius: 16px; margin-bottom: 2rem; background: rgba(26, 31, 58, 0.5);">
+
+
+    <section
+      style="max-width: 900px; background: rgba(26, 31, 58, 0.5); backdrop-filter: blur(10px); padding: 3rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+      <h2>Overview</h2>
+      <p style="color: var(--text-muted); line-height: 1.6;">Built a production ready distributed search engine that
+        efficiently indexes and searches web content at scale. The system leverages distributed computing principles
+        to handle thousands of documents while providing fast, relevant search results through PageRank algorithms.</p>
+
+      <h2>Key Features</h2>
+      <div class="project-features">
+        <ul>
+          <li><strong>Hadoop-Compatible MapReduce Pipeline:</strong> Designed a scalable indexing system that processes
+            documents in parallel, creating inverted indices that map terms to document locations</li>
+          <li><strong>PageRank Implementation:</strong> Integrated Google's PageRank algorithm to rank search results
+            based on link structure and document importance, significantly improving result relevance</li>
+          <li><strong>Multithreaded Search Server:</strong> Implemented concurrent query processing in Python, allowing
+            the system to handle multiple search requests simultaneously while aggregating results from distributed
+            index servers</li>
+          <li><strong>Distributed Architecture:</strong> Deployed multiple index servers that work in parallel,
+            distributing the search workload and providing fault tolerance</li>
+          <li><strong>React Frontend:</strong> Created an intuitive search interface with real-time results and
+            pagination</li>
+        </ul>
+      </div>
+
+      <h2>Technical Implementation</h2>
+      <h3>Backend Architecture</h3>
+      <p style="color: var(--text-muted); line-height: 1.6;">The backend consists of three main components: the indexer,
+        the search server, and the index servers. The indexer uses a MapReduce-style approach to process documents in
+        batches, creating inverted indices that are distributed across multiple index servers. The search server
+        receives queries from users and dispatches them to all index servers concurrently, then aggregates and ranks the
+        results.</p>
+
+      <h3>Indexing Pipeline</h3>
+      <p style="color: var(--text-muted); line-height: 1.6;">Documents are processed through a multi-stage pipeline:
+        text extraction, tokenization, and stopword removal. The inverted index maps each term to a list of
+        documents containing that term, along with term frequency and position information. PageRank scores are computed
+        in a separate pass and integrated into the final ranking.</p>
+
+      <h3>Query Processing</h3>
+      <p style="color: var(--text-muted); line-height: 1.6;">When a user submits a query, the search server tokenizes
+        and processes it using the same pipeline as indexing. The processed query is then sent to all index servers
+        simultaneously using Python's async capabilities. Each index server returns matching documents with
+        relevance scores, which the search server aggregates and ranks using a combination of term frequency-inverse
+        document frequency and PageRank scores.</p>
+
+      <h2>Challenges & Solutions</h2>
+      <p style="color: var(--text-muted); line-height: 1.6;">One major challenge was handling the computational overhead
+        of PageRank calculations on large document graphs. I optimized this by implementing an iterative algorithm that
+        converges within a set number of iterations and caching intermediate results. Another challenge was ensuring
+        thread safety in the multithreaded search server, which I addressed using proper locking mechanisms and
+        thread local storage for request-specific data.</p>
+
+      <h2>Results & Impact</h2>
+      <p style="color: var(--text-muted); line-height: 1.6;">The final system can index over 100,000 documents and
+        respond to search queries in under 200 milliseconds. The PageRank integration improved result relevance by
+        approximately 35% compared to a pure term-frequency approach, as measured by precision at top-10 results.</p>
+
+      <h2>Skills Demonstrated</h2>
+      <div class="interest-list" style="margin-top: 1rem;">
+        <li>Distributed Systems Design</li>
+        <li>Parallel Computing & Multithreading</li>
+        <li>Algorithm Implementation (MapReduce, PageRank)</li>
+        <li>Full-Stack Web Development</li>
+        <li>Cloud Deployment (AWS)</li>
+        <li>Performance Optimization</li>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 M. Malik Tekin. Built with passion for clean code and distributed systems.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

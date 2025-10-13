@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - M. Malik Tekin</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">MT</a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">About</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="projects.html" class="nav-link active">Projects</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <h1
+        style="
+          font-size: 3rem;
+          background: linear-gradient(135deg, var(--accent), var(--accent-2));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 1rem;
+          font-weight: 800;
+        "
+      >
+        Projects
+      </h1>
+      <p
+        style="
+          max-width: 800px;
+          margin-bottom: 3rem;
+          color: var(--text-muted);
+          font-size: 1.1rem;
+        "
+      >
+        Here's a collection of projects that showcase my skills in distributed
+        systems, backend development, full-stack web development, and data
+        science. Each project demonstrates different aspects of software
+        engineering, from building scalable infrastructure to creating
+        user-facing applications.
+      </p>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div
+            class="project-image"
+            style="
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 4rem;
+              font-weight: bold;
+            "
+          >
+            🔍
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Distributed Search Engine</h3>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">AWS</span>
+            </div>
+            <p class="project-description">
+              A scalable distributed search engine with MapReduce indexing and
+              PageRank algorithms for relevant search results.
+            </p>
+            <a href="project-search-engine.html" class="project-link"
+              >View Details</a
+            >
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div
+            class="project-image"
+            style="
+              background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 4rem;
+              font-weight: bold;
+            "
+          >
+            🗄️
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Sharded Key-Value Store</h3>
+            <div class="tech-tags">
+              <span class="tech-tag">Go</span>
+              <span class="tech-tag">Paxos</span>
+              <span class="tech-tag">Distributed Systems</span>
+            </div>
+            <p class="project-description">
+              A fault-tolerant distributed database using Paxos consensus with
+              dynamic shard reconfiguration capabilities.
+            </p>
+            <a href="project-kvstore.html" class="project-link">View Details</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div
+            class="project-image"
+            style="
+              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 4rem;
+              font-weight: bold;
+            "
+          >
+            📸
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Instagram Clone</h3>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">SQLite</span>
+            </div>
+            <p class="project-description">
+              A full-stack social media application with real-time features,
+              authentication, and security best practices.
+            </p>
+            <a href="project-instagram.html" class="project-link"
+              >View Details</a
+            >
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div
+            class="project-image"
+            style="
+              background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 4rem;
+              font-weight: bold;
+            "
+          >
+            🎾
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">ATP Tennis Match Predictor</h3>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Machine Learning</span>
+              <span class="tech-tag">pandas</span>
+              <span class="tech-tag">scikit-learn</span>
+            </div>
+            <p class="project-description">
+              A machine learning system that predicts tennis match outcomes
+              using advanced feature engineering and ensemble methods.
+            </p>
+            <a href="project-tennis.html" class="project-link">View Details</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 M. Malik Tekin. Built with passion for clean code and
+        distributed systems.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

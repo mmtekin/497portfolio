@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATP Tennis Match Predictor - M. Malik Tekin</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">MT</a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">About</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="projects.html" class="nav-link">Projects</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <div style="margin-bottom: 1rem">
+        <a
+          href="projects.html"
+          style="color: var(--accent); text-decoration: none; font-weight: 600"
+          >&larr; Back to Projects</a
+        >
+      </div>
+
+      <h1
+        style="
+          font-size: 3rem;
+          background: linear-gradient(135deg, var(--accent), var(--accent-2));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 1rem;
+          font-weight: 800;
+        "
+      >
+        ATP Tennis Match Predictor
+      </h1>
+
+      <div class="tech-tags" style="margin-bottom: 2rem">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Machine Learning</span>
+        <span class="tech-tag">pandas</span>
+        <span class="tech-tag">scikit-learn</span>
+        <span class="tech-tag">NumPy</span>
+      </div>
+
+      <img
+        src="architectureDiagramTennis.png"
+        alt="ATP Tennis Match Predictor Architecture"
+        class="project-image"
+        style="
+          width: 100%;
+          height: 400px;
+          object-fit: contain;
+          border-radius: 16px;
+          margin-bottom: 2rem;
+          background: rgba(26, 31, 58, 0.5);
+        "
+      />
+
+      <section
+        style="
+          max-width: 900px;
+          background: rgba(26, 31, 58, 0.5);
+          backdrop-filter: blur(10px);
+          padding: 3rem;
+          border-radius: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        "
+      >
+        <h2>Overview</h2>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          Developed a machine learning system that predicts the outcomes of
+          professional tennis matches on the ATP tour. The project demonstrates
+          expertise in data science, feature engineering, and machine learning
+          pipelines, achieving a 64% prediction accuracy through careful feature
+          selection and model optimization.
+        </p>
+
+        <h2>Key Features</h2>
+        <div class="project-features">
+          <ul>
+            <li>
+              <strong>Comprehensive Data Processing:</strong> Transformed 6,000+
+              historical ATP matches into a player-centric dataset optimized for
+              machine learning, handling missing values and ensuring data
+              quality
+            </li>
+            <li>
+              <strong>Advanced Feature Engineering:</strong> Created
+              sophisticated features including Elo rating updates (a
+              chess-inspired rating system adapted for tennis), rank
+              differences, age differences, point differences, surface type
+              indicators, and tournament seasonality metrics
+            </li>
+            <li>
+              <strong>Elo Rating System:</strong> Implemented a dynamic player
+              rating system that updates after each match, providing a more
+              accurate measure of current player strength than static ATP
+              rankings
+            </li>
+            <li>
+              <strong>Symmetric Feature Design:</strong> Ensured model
+              predictions are consistent regardless of player order by creating
+              symmetric features (e.g., rank difference rather than individual
+              ranks)
+            </li>
+            <li>
+              <strong>ML Pipeline:</strong> Built an end-to-end pipeline with
+              preprocessing (missing value imputation, feature scaling, one-hot
+              encoding), model training, hyperparameter tuning, and evaluation
+            </li>
+            <li>
+              <strong>Ensemble Methods:</strong> Trained and compared multiple
+              models including decision trees and gradient boosting classifiers
+              to find the optimal predictor
+            </li>
+          </ul>
+        </div>
+
+        <h2>Technical Implementation</h2>
+        <h3>Data Transformation</h3>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          The raw match data contained information about individual matches with
+          winner and loser columns. I transformed this into a player-centric
+          format where each row represents one player in a match, with features
+          describing both players and their relative strengths. This
+          transformation doubled the dataset size and enabled symmetric feature
+          engineering.
+        </p>
+
+        <h3>Feature Engineering</h3>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          The Elo rating system was crucial to the model's performance. I
+          implemented a version adapted for tennis that considers margin of
+          victory and adjusts ratings more aggressively for unexpected outcomes.
+          Additional features captured various aspects of match context:
+        </p>
+        <ul
+          style="margin-left: 2rem; margin-top: 1rem; color: var(--text-muted)"
+        >
+          <li>Rank and point differences between players</li>
+          <li>Age difference (experience vs. youth)</li>
+          <li>Surface type (clay, grass, hard court) with one-hot encoding</li>
+          <li>Tournament tier and importance</li>
+          <li>Seasonality (time of year affects player form)</li>
+          <li>Recent performance metrics and head-to-head records</li>
+        </ul>
+
+        <h3>Model Development</h3>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          I started with a baseline model using only ATP rankings, which
+          achieved 58% accuracy. After adding engineered features and training
+          gradient boosting classifiers, accuracy improved to 64%. The gradient
+          boosting model outperformed decision trees by better capturing
+          non-linear relationships and feature interactions.
+        </p>
+
+        <h3>Pipeline Architecture</h3>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          The scikit-learn pipeline handles all preprocessing automatically:
+          missing value imputation fills gaps in historical data, StandardScaler
+          normalizes continuous features, and OneHotEncoder converts categorical
+          variables. This ensures consistent preprocessing between training and
+          prediction, preventing data leakage and making the model
+          production-ready.
+        </p>
+
+        <h2>Challenges & Solutions</h2>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          One major challenge was handling missing data, particularly for older
+          matches where detailed statistics weren't recorded. I implemented a
+          sophisticated imputation strategy that uses median values for
+          numerical features and mode for categorical features, while also
+          creating indicator variables to flag imputed values.
+        </p>
+
+        <p style="color: var(--text-muted); line-height: 1.6">
+          Another challenge was preventing overfitting while maintaining good
+          performance. I addressed this through cross validation, careful
+          feature selection, and hyperparameter tuning. The gradient boosting
+          model uses limited tree depth and learning rate to prevent memorizing
+          training examples.
+        </p>
+
+        <h2>Results & Analysis</h2>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          The final model achieves 64% prediction accuracy, a significant
+          improvement over the 58% baseline and exceeding the 50% random guess
+          threshold by a substantial margin. Feature importance analysis
+          revealed that Elo ratings, rank differences, and surface type were the
+          most predictive features. The model performs better on matches between
+          players with larger skill gaps and struggles with close matchups,
+          which aligns with intuition about tennis match dynamics.
+        </p>
+
+        <h2>Future Improvements</h2>
+        <p style="color: var(--text-muted); line-height: 1.6">
+          Potential enhancements include incorporating player injury history,
+          recent match fatigue, head-to-head records, and momentum indicators.
+          Adding neural networks or more sophisticated ensemble methods could
+          also improve performance.
+        </p>
+
+        <h2>Skills Demonstrated</h2>
+        <div class="interest-list" style="margin-top: 1rem">
+          <li>Machine Learning & Data Science</li>
+          <li>Feature Engineering</li>
+          <li>Data Analysis with pandas & NumPy</li>
+          <li>Model Evaluation & Tuning</li>
+          <li>Statistical Analysis</li>
+          <li>Problem-Solving & Domain Knowledge Application</li>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        &copy; 2025 M. Malik Tekin. Built with passion for clean code and
+        distributed systems.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
