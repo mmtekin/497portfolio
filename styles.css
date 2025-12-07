@@ -16,6 +16,10 @@
   --success: #10b981;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
@@ -23,9 +27,17 @@ body {
   color: var(--text);
   background: var(--primary);
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Animated Background */
+.main-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  flex: 1;
+  width: 100%;
+}
 body::before {
   content: "";
   position: fixed;
@@ -144,6 +156,8 @@ body::before {
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
+  flex: 1;
+  width: 100%;
 }
 
 /* Hero Section */
@@ -317,7 +331,7 @@ section {
 
 h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
@@ -341,7 +355,7 @@ h2::after {
 h3 {
   font-size: 1.5rem;
   color: var(--text);
-  margin: 1.5rem 0 1rem;
+  margin: 1rem 0 0.5rem;
   font-weight: 700;
 }
 
@@ -370,6 +384,7 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
   margin: 1.5rem 0;
+  padding: 0;
 }
 
 .interest-list li {
@@ -438,8 +453,7 @@ h3 {
 }
 
 .skill-category:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2);
+  box-shadow: 0 20px 40px rgba(124, 58, 237, 0.1);
 }
 
 .skill-category h3 {
@@ -660,11 +674,41 @@ h3 {
   border-color: rgba(0, 212, 255, 0.3);
 }
 
-.project-image {
+.project-image-container {
   width: 100%;
   height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.4s ease;
+  position: relative; /* Establish stacking context for absolute positioning */
+}
+
+.project-category {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.project-image svg {
+  width: 64px;
+  height: 64px;
+  color: var(--text);
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  transition: all 0.4s ease;
+}
+
+.project-card:hover .project-image svg {
+  transform: scale(1.1);
 }
 
 .project-card:hover .project-image {
@@ -673,6 +717,7 @@ h3 {
 
 .project-content {
   padding: 2rem;
+  position: relative;
 }
 
 .project-title {
@@ -680,12 +725,18 @@ h3 {
   color: var(--text);
   margin-bottom: 1rem;
   font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-title {
+  color: var(--accent);
 }
 
 .project-description {
   margin: 1rem 0;
   line-height: 1.5;
   color: var(--text-muted);
+  width: 100%;
 }
 
 .project-features ul {

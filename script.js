@@ -36,9 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize fade-in animations
   initScrollAnimations();
 
-  // Add parallax effect to hero
-  initParallax();
-
   // Add cursor glow effect
   initCursorGlow();
 });
@@ -62,7 +59,7 @@ function createScrollIndicator() {
 function initScrollAnimations() {
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: "0px 0px -100px 0px",
+    rootMargin: "0px 0px 0px 0px",
   };
 
   const observer = new IntersectionObserver(function (entries) {
@@ -100,21 +97,6 @@ function initScrollAnimations() {
       index * 0.05
     }s, transform 0.5s ease ${index * 0.05}s`;
     observer.observe(item);
-  });
-}
-
-// Parallax effect for hero section
-function initParallax() {
-  const hero = document.querySelector(".hero");
-  if (!hero) return;
-
-  window.addEventListener("scroll", () => {
-    const scrolled = window.pageYOffset;
-    const parallaxSpeed = 0.5;
-
-    if (hero) {
-      hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-    }
   });
 }
 
